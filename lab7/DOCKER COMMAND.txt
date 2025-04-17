@@ -1,0 +1,23 @@
+1.DOCKER PULL COMMAND
+docker pull hello-world
+
+2. Running Hello World Container
+docker run hello-world
+
+3. Running Ubuntu Container Interactively
+docker run -it ubuntu
+
+4. Stopping a Container by ID
+docker stop <id>
+
+5. Creating a Custom Network for MongoDB
+docker network create mongo-network
+
+6. Running MongoDB Container with Correct Environment Variables
+docker run -d -p 27017:27017 --name mongo --network mongo -network -e MONGO_INITDB_ROOT_USERNAME = admin -e MONGO_INITDB_ROOT_PASSWORD=admin mongo
+
+7. Inspecting the Network
+docker network inspect mongo-network
+
+8.RUNNING MONGO EXPRESS
+docker run -d -p 8081:8081 --name mongo-express --network mongo-network -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=admin -e ME_CONFIG_MONGODB_URL="mongodb://admin:admin@mongo:27017" mongo-express
